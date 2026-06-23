@@ -1,0 +1,149 @@
+/* Print Stylesheet - Renders clean A4/Letter page output */
+@media print {
+    /* Hide everything on screen */
+    body, html {
+        background: #ffffff !important;
+        color: #000000 !important;
+        height: auto !important;
+        overflow: visible !important;
+        font-family: 'Times New Roman', Times, serif; /* Professional classic serif */
+        font-size: 11pt;
+        line-height: 1.4;
+    }
+
+    .app-container,
+    .modal-backdrop,
+    .modal,
+    aside,
+    main,
+    header,
+    button {
+        display: none !important;
+    }
+
+    /* Show only the print layout */
+    #print-layout {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0.5in 0.5in 0.5in 0.5in !important; /* 0.5 - 0.75in margins */
+        box-sizing: border-box;
+    }
+
+    /* Resume Typography & Layout styling */
+    .resume-print {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .resume-header {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .resume-name {
+        font-size: 20pt;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .resume-contact {
+        font-size: 9.5pt;
+        color: #333333;
+        margin-bottom: 8px;
+    }
+
+    .resume-section {
+        margin-bottom: 12px;
+    }
+
+    .resume-section-title {
+        font-size: 11pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 1px solid #000000;
+        margin-bottom: 6px;
+        letter-spacing: 0.5px;
+    }
+
+    .resume-summary {
+        font-size: 10pt;
+        margin-bottom: 10px;
+        text-align: justify;
+    }
+
+    .job-entry {
+        margin-bottom: 8px;
+        page-break-inside: avoid;
+    }
+
+    .job-header {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        font-size: 10.5pt;
+    }
+
+    .job-sub {
+        display: flex;
+        justify-content: space-between;
+        font-style: italic;
+        font-size: 10pt;
+        color: #222222;
+        margin-bottom: 3px;
+    }
+
+    .bullets {
+        margin-left: 18px;
+        padding-left: 0;
+        margin-top: 2px;
+        margin-bottom: 4px;
+    }
+
+    .bullets li {
+        font-size: 10pt;
+        margin-bottom: 2px;
+        text-align: justify;
+        list-style-type: disc;
+    }
+
+    .education-entry {
+        margin-bottom: 6px;
+        page-break-inside: avoid;
+    }
+
+    .education-header {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        font-size: 10.5pt;
+    }
+
+    .education-sub {
+        display: flex;
+        justify-content: space-between;
+        font-style: italic;
+        font-size: 10pt;
+        margin-bottom: 2px;
+    }
+
+    .skills-entry {
+        font-size: 10pt;
+        margin-bottom: 3px;
+        line-height: 1.3;
+    }
+
+    .skills-category {
+        font-weight: bold;
+        display: inline;
+    }
+
+    /* Print Setup Settings Overrides */
+    @page {
+        size: letter;
+        margin: 0;
+    }
+}

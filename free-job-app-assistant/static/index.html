@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Local, free, and privacy-focused ATS resume optimizer and job application tracker.">
+    <title>Antigravity Resume Builder & Job Tracker</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Print Style -->
+    <link rel="stylesheet" href="/css/print.css" media="print">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">✦</div>
+                <h2>Antigravity</h2>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item active" data-target="dashboard-view" id="nav-dashboard">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm9-8.586 6 6V20H6v-9.586l6-6z"/><path d="M12 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+                    Dashboard
+                </button>
+                <button class="nav-item" data-target="resume-view" id="nav-resume">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm-7.943 12.398-1.579-.906-.339-.196-.337-.196-1.577-.908a.999.999 0 0 1-.365-1.365l.5-.866a1 1 0 0 1 1.366-.366l1.58.908.337.195.339.196 1.577.907a1 1 0 0 1 .366 1.366l-.5.866a1 1 0 0 1-1.368.365zm3.943-3.898H9v-2h6v2z"/></svg>
+                    Base Resume
+                </button>
+                <button class="nav-item" data-target="search-view" id="nav-search">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"/></svg>
+                    Search LinkedIn
+                </button>
+                <button class="nav-item" data-target="tracker-view" id="nav-tracker">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                    Applications
+                </button>
+                <button class="nav-item" data-target="settings-view" id="nav-settings">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 16c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2z"/><path d="m20 12.753-.021-.104c-.116-.575-.544-1.026-1.099-1.16l-.99-.24c-.21-.051-.383-.191-.476-.385l-.54-1.12c-.1-.209-.092-.452.023-.653l.53-.93c.3-.526.2-1.2-.23-1.63l-1.06-1.06c-.43-.43-1.104-.53-1.63-.23l-.93.53c-.201.115-.444.123-.653.023l-1.12-.54c-.194-.093-.334-.266-.385-.476l-.24-.99C11.096 4.168 10.645 3.74 10.07 3.624L9.966 3.6c-.575-.116-1.026-.544-1.16-1.099l-.24-.99A2 2 0 0 0 6.6.611l-1.06 1.06a2 2 0 0 0-.23 1.63l.53.93c.115.201.123.444.023.653l-.54 1.12c-.093.194-.266.334-.476.385l-.99.24c-.575.116-1.026.544-1.16 1.099l-.021.104L2 12.753l.021.104c.116.575.544 1.026 1.099 1.16l.99.24c.21.051.383.191.476.385l.54 1.12c.1.209.092.452-.023.653l-.53.93c-.3.526-.2 1.2.23 1.63l1.06 1.06c.43.43 1.104.53 1.63.23l.93-.53c.201-.115.444-.123.653-.023l1.12.54c.194.093.334.266.385.476l.24.99c.116.575.544 1.026 1.099 1.16l.104.021a2.007 2.007 0 0 0 1.967-.811l1.06-1.06a2 2 0 0 0 .23-1.63l-.53-.93c-.115-.201-.123-.444-.023-.653l.54-1.12c.093-.194.266-.334.476-.385l.99-.24c.575-.116 1.026-.544 1.16-1.099l.021-.104 1.966-7.747z"/></svg>
+                    Settings
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <p>v1.0.0 (Local-First)</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-wrapper">
+            
+            <!-- Dashboard View -->
+            <section id="dashboard-view" class="view-panel active">
+                <header class="view-header">
+                    <h1>Dashboard</h1>
+                    <p>Track your job application funnel metrics.</p>
+                </header>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Drafts</h3>
+                        <p class="stat-value" id="stat-drafts">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Applied</h3>
+                        <p class="stat-value" id="stat-applied">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Interviews</h3>
+                        <p class="stat-value" id="stat-interviews">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Offers</h3>
+                        <p class="stat-value" id="stat-offers">0</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-widgets">
+                    <div class="widget card">
+                        <h2>Quick Start Guide</h2>
+                        <div class="guide-steps">
+                            <div class="step">
+                                <div class="step-num">1</div>
+                                <div>
+                                    <h4>Configure API Key</h4>
+                                    <p>Go to Settings, paste your Google Gemini API Key and save it.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-num">2</div>
+                                <div>
+                                    <h4>Set Base Resume</h4>
+                                    <p>Upload your master resume (PDF, Word, TXT) under the Base Resume tab.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-num">3</div>
+                                <div>
+                                    <h4>Find a Job & Tailor</h4>
+                                    <p>Search LinkedIn, view description, click "Optimize" and instantly download a customized PDF.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Base Resume View -->
+            <section id="resume-view" class="view-panel">
+                <header class="view-header">
+                    <h1>Base Resume</h1>
+                    <p>Manage your master resume. This text is used as context for tailoring.</p>
+                </header>
+                <div class="resume-workspace">
+                    <div class="resume-sidebar card">
+                        <h3>Upload File</h3>
+                        <p class="hint">Extract text directly from PDF, Word (.docx), or Text files.</p>
+                        <div class="upload-zone" id="upload-zone">
+                            <svg viewBox="0 0 24 24" width="48" height="48" fill="rgba(255,255,255,0.4)"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                            <p>Drag & drop or click to upload</p>
+                            <input type="file" id="resume-file-input" accept=".pdf,.docx,.txt" style="display:none;">
+                        </div>
+                        <div class="upload-progress" id="upload-status"></div>
+                    </div>
+                    <div class="resume-editor-container card">
+                        <div class="editor-header">
+                            <h3>Base Resume Content</h3>
+                            <button class="btn btn-primary" id="btn-save-resume">Save Changes</button>
+                        </div>
+                        <textarea id="base-resume-text" placeholder="Paste your resume content here or upload a file..." class="resume-textarea"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search LinkedIn View -->
+            <section id="search-view" class="view-panel">
+                <header class="view-header">
+                    <h1>Search LinkedIn Jobs</h1>
+                    <p>Scrape job postings anonymously using LinkedIn Guest API.</p>
+                </header>
+                <div class="search-bar card">
+                    <div class="input-group">
+                        <label for="search-keywords">Keywords</label>
+                        <input type="text" id="search-keywords" placeholder="e.g. Software Engineer, React Developer">
+                    </div>
+                    <div class="input-group">
+                        <label for="search-location">Location</label>
+                        <input type="text" id="search-location" placeholder="e.g. San Francisco, CA">
+                    </div>
+                    <button class="btn btn-primary search-btn" id="btn-search-jobs">
+                        Search Jobs
+                    </button>
+                </div>
+                
+                <div class="search-workspace">
+                    <!-- Left: Results List -->
+                    <div class="search-results-list card">
+                        <h3>Search Results</h3>
+                        <div id="search-loading" class="loader-container" style="display:none;">
+                            <div class="spinner"></div>
+                            <p>Scraping LinkedIn Guest API...</p>
+                        </div>
+                        <div id="search-results-container" class="results-container">
+                            <p class="empty-state">Enter keywords and location to start searching.</p>
+                        </div>
+                    </div>
+                    <!-- Right: Selected Job Details -->
+                    <div class="search-job-detail card" id="search-job-detail-panel">
+                        <div class="empty-state" id="job-detail-empty">
+                            <p>Select a job to view description and optimize your resume.</p>
+                        </div>
+                        <div id="job-detail-content" style="display:none;">
+                            <div class="detail-header">
+                                <h2 id="detail-title">Job Title</h2>
+                                <h4 id="detail-company">Company Name</h4>
+                                <span class="badge" id="detail-location">Location</span>
+                                <a id="detail-link" href="#" target="_blank" class="text-link">View original posting 🔗</a>
+                            </div>
+                            <div class="detail-actions">
+                                <button class="btn btn-accent" id="btn-optimize-job">Optimize Resume with Gemini ✦</button>
+                                <button class="btn btn-secondary" id="btn-track-scraped-job">Track Application</button>
+                            </div>
+                            <div class="detail-body">
+                                <h3>Job Description</h3>
+                                <div id="detail-description" class="desc-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Application Tracker View -->
+            <section id="tracker-view" class="view-panel">
+                <header class="view-header">
+                    <h1>Application Tracker</h1>
+                    <p>Organize and track your applications in Kanban columns.</p>
+                    <button class="btn btn-primary" id="btn-add-manual-job">+ Add Job Manually</button>
+                </header>
+                
+                <div class="kanban-board">
+                    <!-- Draft Column -->
+                    <div class="kanban-column" data-status="Draft">
+                        <div class="column-header">
+                            <h3>Draft</h3>
+                            <span class="column-count" id="count-Draft">0</span>
+                        </div>
+                        <div class="column-cards" id="col-Draft"></div>
+                    </div>
+                    <!-- Applied Column -->
+                    <div class="kanban-column" data-status="Applied">
+                        <div class="column-header">
+                            <h3>Applied</h3>
+                            <span class="column-count" id="count-Applied">0</span>
+                        </div>
+                        <div class="column-cards" id="col-Applied"></div>
+                    </div>
+                    <!-- Interviewing Column -->
+                    <div class="kanban-column" data-status="Interviewing">
+                        <div class="column-header">
+                            <h3>Interviewing</h3>
+                            <span class="column-count" id="count-Interviewing">0</span>
+                        </div>
+                        <div class="column-cards" id="col-Interviewing"></div>
+                    </div>
+                    <!-- Offer Column -->
+                    <div class="kanban-column" data-status="Offer">
+                        <div class="column-header">
+                            <h3>Offer</h3>
+                            <span class="column-count" id="count-Offer">0</span>
+                        </div>
+                        <div class="column-cards" id="col-Offer"></div>
+                    </div>
+                    <!-- Rejected Column -->
+                    <div class="kanban-column" data-status="Rejected">
+                        <div class="column-header">
+                            <h3>Rejected</h3>
+                            <span class="column-count" id="count-Rejected">0</span>
+                        </div>
+                        <div class="column-cards" id="col-Rejected"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings View -->
+            <section id="settings-view" class="view-panel">
+                <header class="view-header">
+                    <h1>Settings</h1>
+                    <p>Configure your Gemini API key and details stored locally on your machine.</p>
+                </header>
+                <div class="settings-form card">
+                    <div class="input-group">
+                        <label for="settings-api-key">Google Gemini API Key</label>
+                        <input type="password" id="settings-api-key" placeholder="Enter Gemini API key (starts with AIza...)">
+                        <p class="hint">Get a free key from <a href="https://aistudio.google.com/" target="_blank" class="text-link">Google AI Studio</a>. Keys are stored safely in a local SQLite file.</p>
+                    </div>
+                    <button class="btn btn-primary" id="btn-save-settings">Save Settings</button>
+                    <div class="alert" id="settings-alert" style="display:none;"></div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Optimization Modal -->
+    <div class="modal-backdrop" id="optimize-modal" style="display:none;">
+        <div class="modal card">
+            <div class="modal-header">
+                <h2>Tailoring Resume for Job</h2>
+                <button class="btn-close" id="btn-close-optimize-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="optimize-loading" class="loader-container">
+                    <div class="spinner"></div>
+                    <p>Gemini AI is crafting your tailored ATS resume...</p>
+                </div>
+                <div id="optimize-error" style="display:none;" class="error-container">
+                    <p class="error-text"></p>
+                    <button class="btn btn-secondary" id="btn-retry-optimize">Retry</button>
+                </div>
+                <div id="optimize-result" style="display:none;">
+                    <div class="split-view">
+                        <div class="split-pane">
+                            <h3>Edit Optimized Resume</h3>
+                            <textarea id="optimized-resume-editor" class="optimized-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-primary" id="btn-save-tailored-resume">Save to Tracker</button>
+                        <button class="btn btn-accent" id="btn-print-resume">Print / Save as PDF 📄</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Job Editor Modal (Add/Edit Application) -->
+    <div class="modal-backdrop" id="job-modal" style="display:none;">
+        <div class="modal card">
+            <div class="modal-header">
+                <h2 id="job-modal-title">Job Details</h2>
+                <button class="btn-close" id="btn-close-job-modal">&times;</button>
+            </div>
+            <div class="modal-body scrollable">
+                <form id="job-form">
+                    <input type="hidden" id="job-form-id">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="job-form-title">Job Title *</label>
+                            <input type="text" id="job-form-title" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="job-form-company">Company *</label>
+                            <input type="text" id="job-form-company" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="job-form-location">Location</label>
+                            <input type="text" id="job-form-location">
+                        </div>
+                        <div class="input-group">
+                            <label for="job-form-link">Job Link</label>
+                            <input type="url" id="job-form-link">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="job-form-status">Status</label>
+                            <select id="job-form-status">
+                                <option value="Draft">Draft</option>
+                                <option value="Applied">Applied</option>
+                                <option value="Interviewing">Interviewing</option>
+                                <option value="Offer">Offer</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="job-form-applied-date">Applied Date</label>
+                            <input type="date" id="job-form-applied-date">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="job-form-description">Job Description</label>
+                        <textarea id="job-form-description" class="form-textarea"></textarea>
+                    </div>
+                    <div class="input-group" id="tailored-resume-section" style="display:none;">
+                        <div class="resume-section-header">
+                            <label for="job-form-tailored">Optimized Resume Text</label>
+                            <button type="button" class="btn btn-secondary btn-sm" id="btn-print-form-resume">Print / Save PDF</button>
+                        </div>
+                        <textarea id="job-form-tailored" class="form-textarea optimized-textarea"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="job-form-notes">Application Notes</label>
+                        <textarea id="job-form-notes" class="form-textarea"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-danger" id="btn-delete-job" style="display:none;">Delete</button>
+                        <div class="right-actions">
+                            <button type="button" class="btn btn-secondary" id="btn-cancel-job-form">Cancel</button>
+                            <button type="submit" class="btn btn-primary" id="btn-save-job-form">Save Application</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print Layout Container (Hidden normally, styled in print.css) -->
+    <div id="print-layout">
+        <!-- Rendered print view of tailored resume -->
+    </div>
+
+    <!-- Application Logic -->
+    <script src="/js/app.js"></script>
+</body>
+</html>
